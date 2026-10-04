@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Resume & Job Matcher</title>
+<link rel="stylesheet" href="style.css"></head><body><div class="w">
+<h1>AI Resume &amp; Job Matching System</h1>
+<p class="s">Scores a resume against a job, explains the score, finds skill gaps, checks ATS-friendliness and recommends the best-fit jobs. Runs fully in your browser; nothing is uploaded.</p>
+<div class="g">
+<div class="c"><h2>Resume</h2><textarea id="rs" placeholder="Paste resume text..."></textarea></div>
+<div class="c"><h2>Job description</h2><textarea id="jd" placeholder="Paste job description..."></textarea></div>
+</div>
+<div class="r" style="margin-bottom:14px">
+<button id="go">Analyze match</button><button class="o" id="smp">Load sample</button>
+<label class="mu"><input type="checkbox" id="bl" checked> Bias reduction (mask email, phone, links, name line)</label></div>
+<div id="out" class="hide">
+<div class="g">
+<div class="c"><h2>Overall match</h2><div class="big" id="tot"></div><div class="mu" id="verd"></div>
+<div style="margin-top:12px" id="bk"></div></div>
+<div class="c"><h2>Skills</h2><div class="mu">Matched</div><div id="mt"></div><div class="mu" style="margin-top:8px">Missing (learn or add these)</div><div id="ms"></div>
+<div class="mu" style="margin-top:10px" id="ex"></div></div>
+</div>
+<div class="g">
+<div class="c"><h2>ATS-friendliness check</h2><div id="ats"></div></div>
+<div class="c"><h2>Improvement suggestions</h2><div id="sg"></div></div>
+</div>
+<div class="c"><h2>Top job recommendations for this resume</h2><div id="jobs"></div></div>
+</div>
+<p class="mu">Method: score = 50% text similarity (TF-IDF cosine) + 35% required-skill overlap + 15% experience/education fit. Limitations: keyword-based skill detection, and masking identifiers reduces but does not eliminate bias. Use as decision support, not a hiring decision.</p>
+</div>
+<script src="script.js"></script></body></html>
